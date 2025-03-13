@@ -1,0 +1,2 @@
+gcc -std=c99 -o llc_size_detection llc_size_detection.c -lpthread
+./llc_size_detection
