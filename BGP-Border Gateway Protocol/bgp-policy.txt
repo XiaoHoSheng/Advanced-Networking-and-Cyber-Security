@@ -1,0 +1,111 @@
+NEWT_router BGP policy
+
+!
+access-list 1 seq 5 permit any
+!
+bgp community-list 79 seq 5 permit 81:100
+bgp community-list 79 seq 10 permit 81:200
+!
+route-map IXP_out permit 10
+ match ip address 1
+ set community 126:2 126:4 126:6 126:8 126:10 126:12 126:14
+!
+route-map NEWY_ROUTE_IN permit 10
+ set community 81:126
+!
+route-map NEWY_ROUTE_OUT permit 20
+ match community 80
+ set as-path prepend 59
+ set community 126:2 126:4 126:6 126:8 126:10 126:12 126:14
+!
+route-map NEWY_ROUTE_OUT deny 30
+ match community FILTER
+!
+route-map NEWY_ROUTE_OUT permit 10
+ match community 79
+ set as-path prepend 59
+ set community 126:2 126:4 126:6 126:8 126:10 126:12 126:14
+!
+line vty
+!
+end
+-----------------------------------------------------------------------------------
+BGP Routing Policy Overview
+
+The following document provides a detailed explanation of the BGP routing policies applied on the NEWY_router, outlining the configuration and functionality of each component:
+
+1. Access Control List (ACL):
+   - Access-list 1 permits any traffic. This ACL is utilized in the route-map IXP_out to match and permit all IP traffic.
+
+2. BGP Community Lists:
+   - Two BGP community lists are defined:
+     - Community-list 79 permits the communities 81:100 and 81:200, which are used for route manipulation.
+
+3. Route Maps:
+   - IXP_out Route-map:
+     - Sequence 10 within the IXP_out route-map permits all IP traffic using ACL 1.
+     - Upon matching, this sequence sets the BGP communities 126:2, 126:4, 126:6, 126:8, 126:10, 126:12, 126:14 on the routes.
+
+   - NEWY_ROUTE_IN Route-map:
+     - Sequence 10 sets the community 81:126 on incoming routes from neighbors.
+
+   - NEWY_ROUTE_OUT Route-map:
+     - Sequence 20 matches the community 80 (referred to as FILTER) and applies AS path prepending by adding AS 59 multiple times.
+     - Additionally, it sets the BGP communities 126:2, 126:4, 126:6, 126:8, 126:10, 126:12, 126:14.
+     - Sequence 30 denies routes matching the community FILTER, effectively filtering out specific routes.
+     - Sequence 10 matches the community 79, applies AS path prepending by adding AS 59 multiple times, and sets the BGP communities 126:2, 126:4, 126:6, 126:8, 126:10, 126:12, 126:14.
+
+Conclusion:
+These route maps define the policies applied to inbound and outbound BGP routes on the NEWY_router. They serve to control the advertisement, manipulation, and filtering of routes based on various criteria such as IP traffic, BGP communities, and AS paths. These policies help optimize network performance, manage traffic flow, and ensure network security and stability.
+======================================================================
+PARI_router BGP policy
+!
+bgp community-list 79 seq 5 permit 81:100
+bgp community-list 79 seq 10 permit 81:200
+!
+route-map PARI_ROUTE_IN permit 10
+ set community 81:82
+!
+route-map PARI_ROUTE_OUT permit 30
+ match ip address prefix-list PLIST
+!
+route-map PARI_ROUTE_OUT permit 20
+ match community 84
+ set as-path prepend 81
+!
+route-map PARI_ROUTE_OUT deny 10
+ match community FILTER
+!
+route-map PARI_ROUTE_OUT permit 15
+ match community 83
+ set as-path prepend 81
+!
+line vty
+!
+end
+-------------------------------------------------------------------------------------------------------------------------------------
+BGP Routing Policy Overview
+
+The following document provides a detailed explanation of the BGP routing policies applied on the PARI_router, outlining the configuration and functionality of each component:
+
+1. BGP Community Lists:
+   - Two BGP community lists are defined:
+     - Community-list 79 permits the communities 81:100 and 81:200, which are utilized for route manipulation.
+
+2. Route Maps:
+   - PARI_ROUTE_IN Route-map:
+     - Sequence 10 within the PARI_ROUTE_IN route-map sets the community 81:82 on incoming routes from neighbors.
+
+   - PARI_ROUTE_OUT Route-map:
+     - Sequence 30 matches IP addresses defined in the prefix-list PLIST.
+     - Upon match, this sequence applies AS path prepending by adding AS 81 to the AS path.
+     - Sequence 20 matches the community 84 and applies AS path prepending by adding AS 81.
+     - Sequence 10 denies routes matching the community FILTER, effectively filtering out specific routes.
+     - Sequence 15 matches the community 83 and applies AS path prepending by adding AS 81.
+
+Conclusion:
+These route maps define the policies applied to inbound and outbound BGP routes on the PARI_router. They serve to control the advertisement, manipulation, and filtering of routes based on various criteria such as BGP communities and IP addresses. These policies help optimize network performance, manage traffic flow, and ensure network security and stability.
+=============================================================================
+
+
+

@@ -1,0 +1,208 @@
+For NEWY router
+
+Steps completed:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to NEWY_router.
+3. Added a static route: routed 81.0.0.0/8 network to the Null0 interface.
+4. Configured IP addresses for each interface.
+5. Set up BGP with router number 81 and configured router ID as 81.155.0.1.
+6. Configured BGP neighbor relationships, including specifying peers and update sources.
+7. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+8. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+9. Specified the passive interface for OSPF and configured relevant network areas.
+10. Configured ACL 1 to permit all traffic.
+11. Created BGP community list 79 and specified allowed communities.
+12. Configured route maps: IXP_out, NEWY_ROUTE_IN, NEWY_ROUTE_OUT.
+13. Configured matching and setting of communities in NEWY_ROUTE_OUT, as well as setting as-path and communities.
+14. Configured community filtering and setting in NEWY_ROUTE_OUT.
+15. Configured line vty.
+
+Completed steps include configuring FRR version, hostname, static route, interface IP addresses, BGP router ID and neighbors, IPv4 unicast address family, OSPF router ID and redistribution, ACL, BGP community lists, and route maps. Within route maps, BGP community, as-path, and filtering rules are set.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+BOST_router
+
+Completed steps:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to BOST_router.
+3. Added a static route: routed 81.0.0.0/8 network to the Null0 interface.
+4. Configured IP address for the ext_79_ZURI interface.
+5. Configured IP address for the host interface.
+6. Configured IP address for the lo interface.
+7. Configured IP address for the port_LOND interface and set OSPF cost to 30.
+8. Configured IP address for the port_NEWY interface.
+9. Configured BGP with router number 81 and set router ID as 81.156.0.1.
+10. Configured BGP neighbor relationships, including specifying peers and update sources.
+11. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+12. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+13. Specified passive interface for OSPF and configured relevant network areas.
+14. Configured ACL 1, allowing specific traffic.
+15. Created BGP AS-path access list 1, denying _79_ AS-path.
+16. Configured route-map ALLOW_ALL, denying matches from ACL 1.
+17. Configured route-map ALLOW_ALL, permitting non-matches from ACL 1.
+18. Configured route-map BOST_ROUTER_ALL.
+19. Configured line vty.
+
+The configuration for the BOST_router has been successfully completed. It includes setting up FRR version 7.5.1, defining the hostname, configuring static routes for 81.0.0.0/8 network, assigning IP addresses to various interfaces such as ext_79_ZURI, host, lo, port_LOND, and port_NEWY. BGP has been configured with router number 81 and router ID 81.156.0.1, establishing neighbor relationships, and specifying IPv4 unicast address family. OSPF has been configured with router ID, network redistribution, and passive interfaces. Access control lists (ACLs) have been set up to permit specific traffic, and BGP AS-path access list has been configured to deny certain AS-paths. Route maps have been defined for traffic filtering, and line vty configuration has been completed.
+
+-------------------------------------------------------------------------------------------------------------------------
+LOND_router
+
+Completed steps:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to LOND_router.
+3. Specified the router ID as 81.151.0.1.
+4. Added a static route: routed 81.0.0.0/8 network to the Null0 interface.
+5. Configured the IP address for the dns_81 interface.
+6. Configured the IP address for the ext_79_TRGA interface.
+7. Configured the IP address for the host interface.
+8. Configured the IP address for the lo interface.
+9. Configured the IP address for the port_BOST interface and set OSPF cost to 30.
+10. Configured the IP address for the port_HAML interface.
+11. Configured the IP address for the port_NEWY interface.
+12. Configured the IP address for the port_PARI interface.
+13. Configured BGP with router number 81 and set the router ID as 81.151.0.1.
+14. Configured BGP neighbor relationships, including specifying peers and update sources.
+15. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+16. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+17. Specified the passive interface for OSPF and configured relevant network areas.
+18. Configured ACLs 1-5, permitting specific traffic.
+19. Configured route-map ALLOW_ALL, allowing all routes.
+20. Configured route-map ALLOW_IN, denying matches from ACL 1.
+21. Configured route-map LOND_ROUTE_IN, denying matches from ACL 1.
+22. Configured line vty.
+
+The configuration for LOND_router has been set up with FRR version 7.5.1, assigning the hostname accordingly. Static routes have been established to direct traffic for the 81.0.0.0/8 network to the Null0 interface. IP addresses have been configured for various interfaces including dns_81, ext_79_TRGA, host, lo, port_BOST, port_HAML, port_NEWY, and port_PARI. BGP has been configured with router number 81 and the router ID set as 81.151.0.1, establishing neighbor relationships and specifying IPv4 unicast address families. OSPF settings have been configured, specifying router ID, redistributing connected networks, and setting passive interfaces. Access control lists (ACLs) have been defined to permit specific traffic, and route maps have been established for routing decisions. Lastly, line vty configuration has been completed to manage remote access to the router.
+
+------------------------------------------------------------------------------------------------------------------------
+HAML_router
+
+Completed steps:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to HAML_router.
+3. Added a static route: routed 81.0.0.0/8 network to the Null0 interface.
+4. Configured the IP address for the ext_80_ATLA interface.
+5. Configured the IP address for the host interface.
+6. Configured the IP address for the lo interface.
+7. Configured the IP address for the measurement_81 interface.
+8. Configured the IP address for the port_LOND interface.
+9. Configured the IP address for the port_PARI interface.
+10. Configured BGP with router number 81 and set the router ID as 81.152.0.1.
+11. Configured BGP neighbor relationships, including specifying peers and update sources.
+12. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+13. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+14. Specified the passive interface for OSPF and configured relevant network areas.
+15. Configured ACLs 1-6, permitting specific traffic.
+16. Configured route-map ALLOW_ALL, allowing all routes.
+17. Configured route-map HANL_ROUTE_IN, denying matches from ACL 1.
+18. Configured line vty.
+
+The configuration for HAML_router has been completed. FRR version 7.5.1 is installed with traditional defaults. The hostname is set to HAML_router. Static routing is established to direct traffic for the 81.0.0.0/8 network to the Null0 interface. IP addresses are assigned to interfaces including ext_80_ATLA, host, lo, measurement_81, port_LOND, and port_PARI. BGP is configured with router number 81 and router ID 81.152.0.1, with neighbor relationships specified and IPv4 unicast address family defined. OSPF settings include specifying router ID, redistributing connected networks, and setting a passive interface. Access control lists (ACLs) are set up to permit specific traffic, and route maps are configured for routing decisions. Finally, line vty configuration is completed for remote access management.
+
+-------------------------------------------------------------------------------------------------------------------------
+PARI_router
+
+Completed steps:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to PARI_router.
+3. Added a static route: routed the 81.0.0.0/8 network to the Null0 interface.
+4. Configured the IP address for the ext_82_PARI interface.
+5. Configured the IP address for the host interface.
+6. Configured the IP address for the lo interface.
+7. Configured the IP address for the matrix_81 interface.
+8. Configured the IP address for the port_HAML interface.
+9. Configured the IP address for the port_LOND interface.
+10. Configured the IP address for the port_NEWY interface.
+11. Configured the IP address for the port_TRGA interface.
+12. Configured the IP address for the port_ZURI interface.
+13. Configured BGP with router number 81 and set the router ID as 81.153.0.1.
+14. Configured BGP neighbor relationships, including specifying peers and update sources.
+15. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+16. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+17. Specified the passive interface for OSPF and configured relevant network areas.
+18. Configured BGP community lists, permitting specific communities.
+19. Configured route-map PARI_ROUTE_IN to set community for incoming routes.
+20. Configured route-map PARI_ROUTE_OUT for outbound route policy.
+21. Configured individual entries within route-map PARI_ROUTE_OUT, including matching specific conditions and setting route attributes.
+22. Configured line vty for remote access management.
+
+The configuration for PARI_router has been completed. FRR version 7.5.1 is installed with traditional defaults. The hostname is set to PARI_router. Static routing is established to direct traffic for the 81.0.0.0/8 network to the Null0 interface. IP addresses are assigned to interfaces including ext_82_PARI, host, lo, matrix_81, port_HAML, port_LOND, port_NEWY, port_TRGA, and port_ZURI. BGP is configured with router number 81 and router ID 81.153.0.1, with neighbor relationships specified and IPv4 unicast address family defined. OSPF settings include specifying router ID, redistributing connected networks, and setting a passive interface. BGP community lists are set up to permit specific communities, and route-maps are configured for inbound and outbound route policies, including community setting and route attributes. Finally, line vty configuration is completed for remote access management.
+-------------------------------------------------------------------------------------------------------------------------------
+TRGA_router
+Completed steps:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to TRGA_router.
+3. Added a static route: routed the 81.0.0.0/8 network to the Null0 interface.
+4. Configured the IP address for the ext_83_HAML interface.
+5. Configured the IP address for the host interface.
+6. Configured the IP address for the lo interface.
+7. Configured the IP address for the port_PARI interface.
+8. Configured the IP address for the port_ZURI interface.
+9. Configured BGP with router number 81 and set the router ID as 81.154.0.1.
+10. Configured BGP neighbor relationships, including specifying peers and update sources.
+11. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+12. Configured OSPF router ID and redistributed connected networks in OSPF configuration.
+13. Specified the passive interface for OSPF and configured relevant network areas.
+14. Configured route-map ALLOW_ALL for permitting traffic.
+15. Configured line vty for remote access management.
+
+The configuration for TRGA_router has been completed. FRR version 7.5.1 is installed with traditional defaults, and the hostname is set to TRGA_router. Static routing is established for the 81.0.0.0/8 network. IP addresses are assigned to interfaces including ext_83_HAML, host, lo, port_PARI, and port_ZURI. BGP is configured with router number 81 and router ID 81.154.0.1, with neighbor relationships specified and IPv4 unicast address family defined. OSPF settings include specifying router ID, redistributing connected networks, and setting a passive interface. A route-map is configured to permit all traffic, and line vty is set up for remote access management.
+-------------------------------------------------------------------------------------------------------------------------------
+ZURI_router
+Completed steps:
+
+1. Installed FRR version 7.5.1 with traditional defaults.
+2. Set the hostname to ZURI_router.
+3. Established a static route for the 81.0.0.0/8 network routed to Null0.
+4. Configured IP address for the ext_83_HAML interface.
+5. Assigned an IP address to the host interface.
+6. Set up the lo interface with an IP address.
+7. Configured IP addresses for port_ATLA, port_NEWY, port_PARI, and port_TRGA interfaces.
+8. Configured BGP with router number 81 and router ID 81.158.0.1, establishing neighbor relationships with peers and specifying update sources.
+9. Defined IPv4 unicast address family in BGP router, specifying networks and aggregate addresses, and enabled soft reconfiguration inbound for one neighbor.
+10. Configured OSPF router ID and redistributed connected networks in OSPF configuration, with a passive interface for host and specifying relevant network areas.
+11. Defined access lists to permit specific network traffic.
+12. Configured a route-map to permit all traffic.
+13. Set up route-maps for inbound and outbound traffic for the ZURI_router.
+14. Completed line vty configuration for remote access management.
+
+The configuration for ZURI_router has been successfully completed. FRR version 7.5.1 was installed with traditional defaults, setting the hostname to ZURI_router. Static routing for the 81.0.0.0/8 network was established, directing traffic to Null0. IP addresses were assigned to various interfaces including ext_83_HAML, host, lo, port_ATLA, port_NEWY, port_PARI, and port_TRGA. BGP was configured with router number 81 and router ID 81.158.0.1, setting up neighbor relationships with peers and specifying update sources. IPv4 unicast address family was defined in BGP router, including network and aggregate addresses, and soft reconfiguration inbound was enabled for one neighbor. OSPF configuration included setting router ID, redistributing connected networks, and specifying network areas. Access lists were defined to permit specific network traffic, and route-maps were configured for inbound and outbound traffic for ZURI_router. Finally, line vty configuration was completed for remote access management.
+-------------------------------------------------------------------------------------------------------------------------------
+
+ATLA_router
+Steps completed based on the provided configuration:
+
+1. Configured FRR version to 7.5.1.
+2. Set the hostname to ATLA_router.
+3. Added a static route: directed traffic for the 81.0.0.0/8 network to the Null0 interface.
+4. Configured the IP address for the ext_84_HAML interface.
+5. Configured the IP address for the host interface.
+6. Configured the IP address for the lo interface.
+7. Configured the IP address for the port_NEWY interface.
+8. Configured the IP address for the port_ZURI interface.
+9. Configured BGP with router number 81 and set the router ID as 81.157.0.1.
+10. Configured BGP neighbor relationships, including specifying peers and update sources.
+11. Configured IPv4 unicast address family in BGP router, specifying relevant networks and aggregate addresses.
+12. Enabled soft reconfiguration inbound for neighbor 179.2.54.2.
+13. Configured route-map ALLOW_ALL for neighbor 179.2.54.2 for both inbound and outbound traffic.
+14. Specified OSPF router ID and redistributed connected networks in OSPF configuration.
+15. Configured the passive interface for OSPF and specified relevant network areas.
+16. Configured route-map ALLOW_ALL to set the community attribute as "no-export" for outbound traffic.
+17. Completed line vty configuration.
+
+The FRR version has been set to 7.5.1, and the hostname is configured as ATLA_router. A static route has been established to route traffic for the 81.0.0.0/8 network to the Null0 interface. IP addresses are assigned to various interfaces including ext_84_HAML, host, lo, port_NEWY, and port_ZURI. BGP is configured with router number 81 and router ID 81.157.0.1, with neighbor relationships established and IPv4 unicast address family defined. Soft reconfiguration is enabled inbound for a specific neighbor, and route-map ALLOW_ALL is configured for inbound and outbound traffic. OSPF settings include specifying router ID, redistributing connected networks, and setting a passive interface. Additionally, a route-map is configured to set the community attribute as "no-export" for outbound traffic, and line vty configuration is completed.
+
+
+
+
+
+
