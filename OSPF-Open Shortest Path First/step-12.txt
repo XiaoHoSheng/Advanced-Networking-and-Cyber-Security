@@ -1,0 +1,153 @@
+LOND_router# ping 81.106.0.2
+PING 81.106.0.2 (81.106.0.2) 56(84) bytes of data.
+64 bytes from 81.106.0.2: icmp_seq=1 ttl=63 time=0.636 ms
+64 bytes from 81.106.0.2: icmp_seq=2 ttl=63 time=0.442 ms
+64 bytes from 81.106.0.2: icmp_seq=3 ttl=63 time=0.443 ms
+64 bytes from 81.106.0.2: icmp_seq=4 ttl=63 time=0.461 ms
+64 bytes from 81.106.0.2: icmp_seq=5 ttl=63 time=0.515 ms
+64 bytes from 81.106.0.2: icmp_seq=6 ttl=63 time=0.496 ms
+64 bytes from 81.106.0.2: icmp_seq=7 ttl=63 time=0.484 ms
+64 bytes from 81.106.0.2: icmp_seq=8 ttl=63 time=0.492 ms
+64 bytes from 81.106.0.2: icmp_seq=9 ttl=63 time=1.89 ms
+64 bytes from 81.106.0.2: icmp_seq=10 ttl=63 time=0.495 ms
+64 bytes from 81.106.0.2: icmp_seq=11 ttl=63 time=0.507 ms
+64 bytes from 81.106.0.2: icmp_seq=12 ttl=63 time=0.436 ms
+64 bytes from 81.106.0.2: icmp_seq=13 ttl=63 time=0.438 ms
+64 bytes from 81.106.0.2: icmp_seq=14 ttl=63 time=0.407 ms
+64 bytes from 81.106.0.2: icmp_seq=15 ttl=63 time=0.414 ms
+64 bytes from 81.106.0.2: icmp_seq=16 ttl=63 time=0.458 ms
+64 bytes from 81.106.0.2: icmp_seq=17 ttl=63 time=0.459 ms
+64 bytes from 81.106.0.2: icmp_seq=18 ttl=63 time=0.447 ms
+64 bytes from 81.106.0.2: icmp_seq=19 ttl=63 time=0.450 ms
+
+--- 81.106.0.2 ping statistics ---
+19 packets transmitted, 19 received, 0% packet loss, time 18295ms
+rtt min/avg/max/mdev = 0.407/0.546/1.895/0.321 ms
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Accepted connection from 81.106.0.1, port 59014
+[  5] local 81.101.0.1 port 5201 connected to 81.106.0.1 port 59028
+[ ID] Interval           Transfer     Bandwidth
+[  5]   0.00-1.00   sec  6.01 MBytes  50.4 Mbits/sec
+[  5]   1.00-2.00   sec  5.29 MBytes  44.3 Mbits/sec
+[  5]   2.00-3.00   sec  4.85 MBytes  40.7 Mbits/sec
+[  5]   3.00-4.00   sec  6.65 MBytes  55.8 Mbits/sec
+[  5]   4.00-5.00   sec  5.84 MBytes  49.0 Mbits/sec
+[  5]   5.00-6.00   sec  6.56 MBytes  55.0 Mbits/sec
+[  5]   6.00-7.00   sec  4.86 MBytes  40.8 Mbits/sec
+[  5]   7.00-8.00   sec  6.59 MBytes  55.3 Mbits/sec
+[  5]   8.00-9.00   sec  4.79 MBytes  40.2 Mbits/sec
+[  5]   9.00-10.00  sec  5.42 MBytes  45.4 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth
+[  5]   0.00-10.00  sec  0.00 Bytes  0.00 bits/sec                  sender
+[  5]   0.00-10.00  sec  56.9 MBytes  47.7 Mbits/sec                  receiver
+--------------------------------------------------------------------------------------------------------------------------------------
+Server listening on 5201
+-----------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------
+
+LOND_router# show ip ospf interface
+host is up
+  ifindex 20888, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.101.0.2/24, Broadcast 81.101.0.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.151.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  No backup designated router on this network
+  Multicast group memberships: <None>
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    No Hellos (Passive interface)
+  Neighbor Count is 0, Adjacent neighbor count is 0
+port_BOST is up
+  ifindex 26968, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.7.1/30, Broadcast 81.0.7.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.151.0.1, Network Type BROADCAST, Cost: 30
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Backup Designated Router (ID) 81.156.0.1, Interface Address 81.0.7.2
+  Saved Network-LSA sequence number 0x8000006b
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 2.053s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+port_HAML is up
+  ifindex 26950, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.2.2/30, Broadcast 81.0.2.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.151.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Backup Designated Router (ID) 81.152.0.1, Interface Address 81.0.2.1
+  Saved Network-LSA sequence number 0x80000068
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 2.053s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+port_NEWY is up
+  ifindex 26972, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.8.1/30, Broadcast 81.0.8.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.151.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Backup Designated Router (ID) 81.155.0.1, Interface Address 81.0.8.2
+  Saved Network-LSA sequence number 0x80000063
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 2.053s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+port_PARI is up
+  ifindex 26958, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.4.2/30, Broadcast 81.0.4.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.151.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  Backup Designated Router (ID) 81.153.0.1, Interface Address 81.0.4.1
+  Saved Network-LSA sequence number 0x8000006c
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 2.053s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+BOST_router# show ip ospf interface
+host is up
+  ifindex 20908, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.106.0.2/24, Broadcast 81.106.0.255, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.156.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State DR, Priority 1
+  No backup designated router on this network
+  Multicast group memberships: <None>
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    No Hellos (Passive interface)
+  Neighbor Count is 0, Adjacent neighbor count is 0
+port_LOND is up
+  ifindex 26970, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.7.2/30, Broadcast 81.0.7.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.156.0.1, Network Type BROADCAST, Cost: 30
+  Transmit Delay is 1 sec, State Backup, Priority 1
+  Backup Designated Router (ID) 81.156.0.1, Interface Address 81.0.7.2
+  Saved Network-LSA sequence number 0x80000035
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 5.908s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+port_NEWY is up
+  ifindex 26982, MTU 1500 bytes, BW 10000 Mbit <UP,BROADCAST,RUNNING,MULTICAST>
+  Internet Address 81.0.10.2/30, Broadcast 81.0.10.3, Area 0.0.0.0
+  MTU mismatch detection: enabled
+  Router ID 81.156.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State Backup, Priority 1
+  Backup Designated Router (ID) 81.156.0.1, Interface Address 81.0.10.2
+  Saved Network-LSA sequence number 0x80000002
+  Multicast group memberships: OSPFAllRouters OSPFDesignatedRouters
+  Timer intervals configured, Hello 10s, Dead 40s, Wait 40s, Retransmit 5
+    Hello due in 5.908s
+  Neighbor Count is 1, Adjacent neighbor count is 1
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
